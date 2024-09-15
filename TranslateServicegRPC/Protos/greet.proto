@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+service Translation {
+  rpc Translate (TranslateRequest) returns (TranslateResponse);
+  rpc GetServiceInfo (Empty) returns (ServiceInfo);
+}
+
+message TranslateRequest {
+  repeated string texts = 1;
+  string fromLanguage = 2;
+  string toLanguage = 3;
+}
+
+message TranslateResponse {
+  repeated string translations = 1;
+}
+
+message ServiceInfo {
+  string info = 1;
+}
+
+message Empty {}
